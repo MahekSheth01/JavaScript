@@ -31,7 +31,7 @@ console.log(lastLoginTime)
 //Objects
 
 const person={
-    fname:"Mahek",
+    fname:"MahekKK",
     lname:"Sheth",
     age:22,
 }
