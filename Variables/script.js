@@ -14,8 +14,8 @@ console.log("Variables")
 //fName (Preff) Camel Casing
 
 if(true){
-    let age=20;
-    var fname="Mahek";
+    let age=22;
+    var fname="Mahekk";
     const pi=3.14;
     console.log(age);
     pi=3;
