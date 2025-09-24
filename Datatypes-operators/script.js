@@ -39,7 +39,7 @@ console.log(person.fname)
 
 //Array
 
-let fruits=['Apple','Mango','Grapes',11]
+let fruits=['Apple','Mango','Grapes',11,true,3.14]
 console.log(fruits)
 
 //Operators
