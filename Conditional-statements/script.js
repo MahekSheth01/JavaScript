@@ -24,7 +24,10 @@ switch(opt){
         console.log('One')
         break;
     case 2:
-        console.log('Second')
+        console.log('Two')
+        break;
+    case 3:
+        console.log('Three')
         break;
     default:
         console.log('Invalid')
