@@ -7,10 +7,10 @@
 
 //1. Syntax
 
-// function greet(name){
-//     return 'Hello '+name
-// }
-// console.log(greet('Mahek'))
+function greet(name){
+    return 'Hello '+name
+}
+console.log(greet('Mahek'))
 
 const greet=()=>{//Arrow function
     console.log('Hello World')
