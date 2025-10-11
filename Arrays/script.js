@@ -33,7 +33,7 @@ students.forEach((val)=>console.log(val));
 students.map((val)=>console.log(val));
 //Returns new Array
 
-const num=[1,2,3,4,5];
+const num=[112,22,13,14,25];
 num.forEach((val)=>console.log(val*2));
 
 const newNum=num.map((val)=>val*2);
