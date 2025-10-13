@@ -6,7 +6,7 @@
 //for of loop-->iterates over the values of an iterable object like array, string, map, set
 
 //for loop
-for(let i=0;i<5;i++){
+for(let i=0;i<10;i++){
     console.log(i)
 }
 //while loop
