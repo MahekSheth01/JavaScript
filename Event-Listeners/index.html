@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="t1">Event Listeners</h1><br>
+    <h1>Dynamic elements</h1>
+    <button id="btnclick">
+        Click Me
+    </button>
+    <div id="my-container"></div>
+    <button id="clc">Add Dynamic elementss</button>
+    <script>
+        function showAlert() {
+            alert('Button Clicked via Event Listener!');
+            console.log('Button was clicked');
+            const t1=document.getElementById('t1');
+            t1.style.color='red';
+        }
+        const c=document.getElementById('btnclick');
+        c.addEventListener('click', showAlert);
+    </script>
+     <script>
+
+        addEventListener('click', ()=>{
+            console.log('Document Clicked');
+        });
+    </script>
+    <script>
+        const btn=document.getElementById('clc');
+        const container=document.getElementById('my-container');
+        let count=0;
+        btn.addEventListener('click',()=>{
+            const el=document.createElement('button');
+            el.innerText=count;
+            container.appendChild(el);
+            count++;
+        })
+    </script>
+</body>
+</html>
