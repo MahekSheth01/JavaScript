@@ -6,6 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Promises in JavaScript</h1>
+    <script>
+        //Synchronous task
+        console.log('Script start');
+        let a = 10;
+        let b = 20;
+        let sum = a + b;
+        console.log('Sum:', sum);
+        //Asynchronous task using Promise
+        const resfromserver=async ()=>{
+           const res= await fetch('https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699')
+           const data=await res.json();
+           console.log(data);
+        };
+        resfromserver();
+    </script>
 </body>
 </html>
