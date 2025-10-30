@@ -34,3 +34,11 @@ function addNumbers(...numbers){
 }
 console.log(addNumbers(1,2,3,4,5))
 console.log(addNumbers(10,20,30))
+// Arrow function
+const multiply=(a,b)=>a*b
+console.log(multiply(5,10))
+// Immediately Invoked Function Expression(IIFE)
+(function(){
+    console.log("This is an IIFE function")
+}
+)();
