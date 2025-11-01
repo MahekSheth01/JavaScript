@@ -1,0 +1,1 @@
+alert('Greeting from script.js in current-location!');
