@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aesthetic Stopwatch</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      font-family: "Poppins", sans-serif;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 5rem;
+      margin: 20px 0;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+      letter-spacing: 2px;
+    }
+
+    button {
+      background: #fff;
+      color: #333;
+      border: none;
+      padding: 12px 28px;
+      margin-top: 15px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+      background: #f4f4f4;
+      transform: translateY(-2px);
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px 60px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .finished {
+      color: #00ff88;
+      text-shadow: 0 0 15px #00ff88;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="time">00:00</h1>
+    <button id="stop-time">Stop Timer</button>
+  </div>
+
+ <script src="script.js"></script>
+</body>
+</html>
