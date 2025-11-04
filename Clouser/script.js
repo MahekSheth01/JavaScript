@@ -42,3 +42,4 @@ add5(2);//7
 const add10=adder(10);
 add10(10);
 add10(5);
+
