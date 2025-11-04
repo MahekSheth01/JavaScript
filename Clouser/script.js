@@ -25,3 +25,20 @@ function main(){
 const counter1=main();
 
 counter1();counter1();counter1();
+
+//In this example, increment is a closure that captures the variable counter from its outer function main.
+
+function adder(num){
+    function add(value){
+        console.log(value+num);
+    }
+    return add;
+}
+const add5=adder(5);
+add5(10); //15
+add5(20); //25
+add5(2);//7
+
+const add10=adder(10);
+add10(10);
+add10(5);
