@@ -43,3 +43,20 @@ const add10=adder(10);
 add10(10);
 add10(5);
 
+const myname=document.getElementById("myname");
+const btn=document.getElementById("btn");
+
+function makeTextSizer(size){
+    function setSize(){
+        myname.style.fontSize=size+"px";
+    }
+    return setSize;
+}
+
+const size20=makeTextSizer(20);
+const size50=makeTextSizer(50);
+const size80=makeTextSizer(80);
+
+btn.addEventListener("click",size20);
+// btn.addEventListener("click",size50);
+// btn.addEventListener("click",size80);
