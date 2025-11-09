@@ -20,3 +20,15 @@ const curriedAdd = curry(add);
 console.log(curriedAdd(1)(2)(3)); // Outputs: 6
 console.log(curriedAdd(1, 2)(3)); // Outputs: 6
 console.log(curriedAdd(1)(2, 3)); // Outputs: 6
+
+// Another example:
+function multiply(a, b, c) {
+    return a * b * c;
+}
+const curriedMultiply = curry(multiply);
+console.log(curriedMultiply(2)(3)(4)); // Outputs: 24
+console.log(curriedMultiply(2, 3)(4)); // Outputs: 24
+console.log(curriedMultiply(2)(3, 4)); // Outputs: 24
+
+// Currying can be particularly useful in scenarios where functions need to be reused with some arguments fixed, enhancing code modularity and readability.
+
