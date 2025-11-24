@@ -49,4 +49,17 @@ if(true){
 // console.log(age);
 console.log(fname);
 
-
+//Data Types
+//Primitive-->string, number, boolean, null, undefined, symbol, bigint
+//Non-Primitive-->object, array, function
+let str="Hello World"; //string
+let num=100; //number
+let isActive=true;
+let data=null;
+let info; //undefined
+let sym=Symbol("id");
+let bigIntNum=9007199254741991n; //bigint
+console.log(typeof str);
+console.log(typeof num);
+console.log(typeof isActive);
+console.log(typeof data);   
