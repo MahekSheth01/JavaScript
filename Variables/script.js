@@ -63,3 +63,8 @@ console.log(typeof str);
 console.log(typeof num);
 console.log(typeof isActive);
 console.log(typeof data);   
+
+//
+console.log(typeof info);
+console.log(typeof sym);
+console.log(typeof bigIntNum);
