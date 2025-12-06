@@ -62,3 +62,15 @@ const person={
 }
 person.myfunction()
 person.newfunction()
+
+//In arrow function 'this' keyword refers to the surrounding lexical context
+const person1={
+    name:'John',
+    myfunction:function(){
+        const innerFunction=()=>{
+            console.log("Name is : "+this.name)
+        }
+        innerFunction()
+    }
+}
+person1.myfunction()
