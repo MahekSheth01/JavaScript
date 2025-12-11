@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Barbie Theme — Aurora Tasks</title>
+
+  <!-- Google font (playful & modern) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Sacramento&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1: #ffeef8;                /* soft pink background */
+      --panel: #ffffff;              /* white card */
+      --rose-1: #ff79c6;
+      --rose-2: #ff9ad6;
+      --accent: linear-gradient(90deg, #ff79c6 0%, #ff9ad6 50%, #ffc0e8 100%);
+      --muted: #7a3b5f;
+      --glass: rgba(255,255,255,0.6);
+      --glass-2: rgba(255,245,250,0.8);
+      --shadow: 0 14px 40px rgba(255,106,179,0.12);
+    }
+
+    *{box-sizing:border-box;font-family:Poppins,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
+    html,body{height:100%;margin:0;background:
+      radial-gradient(600px 300px at 10% 20%, rgba(255,154,214,0.18), transparent),
+      radial-gradient(500px 260px at 90% 80%, rgba(255,121,198,0.12), transparent),
+      var(--bg1);
+      color:#3c2136;}
+
+    /* NAVBAR */
+    nav{
+      display:flex;align-items:center;justify-content:space-between;padding:16px 20px;position:sticky;top:0;z-index:40;
+      background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+      box-shadow:0 6px 20px rgba(255,105,180,0.06);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(255,182,193,0.4);
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logoCircle{
+      width:46px;height:46px;border-radius:50%;
+      background:var(--accent);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 8px 30px rgba(255,105,180,0.18);
+      transform:rotate(-8deg);
+    }
+    .logoCircle span{font-family:Sacramento, cursive;font-size:20px;color:#fff;letter-spacing:1px}
+    .brandTitle{display:flex;flex-direction:column}
+    .brandTitle .title{font-weight:800;color:#621a3a}
+    .brandTitle .tag{font-size:11px;color:#8b3b5e;margin-top:2px}
+
+    .navLinks{display:flex;gap:14px;align-items:center}
+    a.navBtn{background:transparent;border-radius:999px;padding:8px 12px;text-decoration:none;color:#7a3b5f;font-weight:600; border:1px solid rgba(122,59,95,0.06)}
+    a.navBtn:hover{background:linear-gradient(90deg, rgba(255,121,198,0.08), rgba(255,154,214,0.06));transform:translateY(-3px)}
+
+    /* page layout */
+    .wrap{max-width:980px;margin:28px auto;padding:20px;display:grid;grid-template-columns:1fr 340px;gap:24px}
+    @media (max-width:900px){.wrap{grid-template-columns:1fr;padding:14px;gap:14px}}
+
+    /* card */
+    .card{
+      border-radius:16px;padding:20px;background:linear-gradient(180deg, var(--panel), rgba(255,253,255,0.95));
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,182,193,0.28);
+      transition:transform .14s ease;
+    }
+    .card:hover{transform:translateY(-6px)}
+
+    .heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .heading h1{font-size:20px;margin:0;color:#561433}
+    .sub{font-size:13px;color:#7a3b5f}
+
+    /* input */
+    .addRow{display:flex;gap:12px;margin-top:8px}
+    .input{
+      flex:1;padding:12px 14px;border-radius:12px;border:none;background:var(--glass-2);
+      color:#3c2136;outline:none;font-size:14px;box-shadow:inset 0 2px 0 rgba(255,182,193,0.12);
+    }
+    .input::placeholder{color:#a95a83}
+
+    .btn{
+      padding:10px 14px;border-radius:12px;border:none;background:var(--accent);
+      color:white;font-weight:700;cursor:pointer;letter-spacing:.3px;box-shadow:0 10px 30px rgba(255,121,198,0.14);
+      transition:transform .12s ease;
+    }
+    .btn:hover{transform:translateY(-4px)}
+
+    /* list */
+    .todo-list{margin-top:18px;display:flex;flex-direction:column;gap:12px;max-height:58vh;overflow:auto;padding-right:6px}
+    .todo{
+      display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;background:linear-gradient(180deg,#fff,#fff);
+      border:1px solid rgba(255,182,193,0.14);transition:transform .12s ease, box-shadow .12s ease;
+    }
+    .todo:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(205,80,140,0.06)}
+    .check{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;
+           background:linear-gradient(180deg, rgba(255,240,249,1), rgba(255,230,245,1));border:1px solid rgba(255,182,193,0.18);font-weight:800;color:#b33b6a}
+    .check.checked{background:linear-gradient(90deg,#ffb3da,#ff7fb0);color:#fff;box-shadow:0 8px 28px rgba(255,121,198,0.18)}
+
+    .meta{flex:1;min-width:0}
+    .title{font-weight:700;color:#4b1932;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+    .small{font-size:12px;color:#9a5776;margin-top:6px}
+    .pill{font-size:12px;padding:6px 8px;border-radius:999px;background:linear-gradient(90deg, rgba(255,121,198,0.06), rgba(255,154,214,0.04));border:1px solid rgba(255,182,193,0.08);color:#7a3b5f}
+
+    .actions{display:flex;gap:8px;align-items:center}
+    .iconBtn{background:transparent;border:1px dashed rgba(122,59,95,0.08);padding:8px;border-radius:10px;color:#7a3b5f;cursor:pointer}
+    .iconBtn:hover{transform:translateY(-3px);background:linear-gradient(90deg, rgba(255,121,198,0.06), rgba(255,154,214,0.03))}
+
+    /* side */
+    .side{display:flex;flex-direction:column;gap:12px}
+    .stats{display:flex;gap:12px;flex-wrap:wrap}
+    .stat{flex:1;min-width:110px;padding:12px;border-radius:12px;background:linear-gradient(135deg,#ffd6ea,#fff1f7);color:#7a3b5f;font-weight:800;text-align:center}
+
+    /* filter buttons */
+    .mutedBtn{background:transparent;border:1px solid rgba(122,59,95,0.06);padding:10px 12px;border-radius:10px;color:#7a3b5f;cursor:pointer}
+    .mutedBtn:hover{background:linear-gradient(90deg, rgba(255,121,198,0.06), rgba(255,154,214,0.03));transform:translateY(-3px)}
+
+    /* dialog */
+    dialog{
+      border-radius:14px;padding:0;border:none;background:linear-gradient(180deg,#fff,#fff0fb);
+      color:#4b1932;width:min(560px,92%);box-shadow:0 30px 80px rgba(255,105,180,0.12);
+    }
+    dialog .dhead{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid rgba(255,182,193,0.12)}
+    dialog .dbody{padding:16px;display:flex;flex-direction:column;gap:12px}
+    .field{display:flex;flex-direction:column;gap:6px}
+    label{font-size:13px;color:#7a3b5f}
+    input[type="date"], textarea, input[type="text"]{
+      padding:10px 12px;border-radius:10px;border:1px solid rgba(122,59,95,0.06);background:transparent;color:#4b1932;outline:none;
+    }
+    textarea{min-height:110px;resize:vertical;padding-top:10px}
+
+    .dfoot{display:flex;gap:10px;justify-content:flex-end;padding:14px;border-top:1px solid rgba(255,182,193,0.06)}
+    .saveBtn{background:linear-gradient(90deg,#ff79c6,#ff9ad6);padding:10px 14px;border-radius:10px;border:none;color:#fff;font-weight:700;cursor:pointer}
+    .delBtn{background:transparent;border:1px solid rgba(122,59,95,0.06);padding:10px 12px;border-radius:10px;color:#7a3b5f;cursor:pointer}
+
+    /* empty state */
+    .empty{display:flex;flex-direction:column;gap:10px;align-items:center;padding:28px;border-radius:12px;background:linear-gradient(180deg, rgba(255,240,249,0.6), transparent);color:#9a5776}
+    .emoji{font-size:38px}
+
+    /* small scrollbar */
+    .todo-list::-webkit-scrollbar{width:8px}
+    .todo-list::-webkit-scrollbar-thumb{background:linear-gradient(180deg,rgba(255,121,198,0.12),rgba(255,154,214,0.06));border-radius:999px}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="brand">
+      <div class="logoCircle"><span>B</span></div>
+      <div class="brandTitle">
+        <div class="title">Barbie Tasks</div>
+        <div class="tag">Dream • Plan • Do</div>
+      </div>
+    </div>
+
+    <div class="navLinks">
+      <a class="navBtn" href="#" onclick="alert('Home - demo')">Home</a>
+      <a class="navBtn" href="#" onclick="alert('Tasks - demo')">Tasks</a>
+      <a class="navBtn" href="#" onclick="alert('Profile - demo')">Profile</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <!-- MAIN -->
+    <section class="card" aria-labelledby="mainTitle">
+      <div class="heading">
+        <div>
+          <h1 id="mainTitle">Sparkle To-Dos</h1>
+          <div class="sub">Organize your day with a pink sparkle ✨</div>
+        </div>
+        <div class="sub" style="font-size:13px">Click a task to set date & notes</div>
+      </div>
+
+      <div class="addRow" role="region" aria-label="Add task">
+        <input id="taskInput" class="input" type="text" placeholder="Add a new task... (press Enter or Add)" />
+        <button class="btn" id="addBtn">Add</button>
+      </div>
+
+      <div class="todo-list" id="todoList" aria-live="polite"></div>
+    </section>
+
+    <!-- SIDE -->
+    <aside class="side">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div style="font-weight:800">Overview</div>
+            <div class="small" style="margin-top:6px">Your quick sparkly stats</div>
+          </div>
+        </div>
+
+        <div class="stats" style="margin-top:12px">
+          <div class="stat" id="totalStat">0<br><span style="font-size:12px;color:#7a3b5f;font-weight:600">Total</span></div>
+          <div class="stat" id="doneStat">0<br><span style="font-size:12px;color:#7a3b5f;font-weight:600">Done</span></div>
+          <div class="stat" id="upcomingStat">0<br><span style="font-size:12px;color:#7a3b5f;font-weight:600">With Date</span></div>
+        </div>
+
+        <div style="margin-top:12px" class="small">Add dates to get organized — pink style.</div>
+      </div>
+
+      <div class="card" style="display:flex;flex-direction:column">
+        <div style="font-weight:800">Quick Filters</div>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+          <button class="mutedBtn" onclick="filterAll()">All</button>
+          <button class="mutedBtn" onclick="filterToday()">Due Today</button>
+          <button class="mutedBtn" onclick="filterUpcoming()">Upcoming</button>
+          <button class="mutedBtn" onclick="clearCompleted()">Clear Completed</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Dialog -->
+  <dialog id="taskDialog" aria-labelledby="dlgTitle">
+    <div class="dhead">
+      <div id="dlgTitle" style="font-weight:800;color:#4b1932">Task details</div>
+      <button class="delBtn" onclick="closeDialog()">✕</button>
+    </div>
+
+    <div class="dbody">
+      <div class="field">
+        <label>Title</label>
+        <input id="dlgTitleInput" type="text" />
+      </div>
+
+      <div class="field">
+        <label>Due date</label>
+        <input id="dlgDate" type="date" />
+      </div>
+
+      <div class="field">
+        <label>Notes</label>
+        <textarea id="dlgNotes" placeholder="Add any details, links or steps..."></textarea>
+      </div>
+
+      <div class="field">
+        <label>Mark as completed</label>
+        <input id="dlgCompleted" type="checkbox" />
+      </div>
+    </div>
+
+    <div class="dfoot">
+      <button class="delBtn" onclick="deleteFromDialog()">Delete</button>
+      <button class="saveBtn" onclick="saveDialog()">Save</button>
+    </div>
+  </dialog>
+
+  <script>
+    // Persistence key
+    const TODO_KEY = 'barbie_todos_v1';
+    let todos = JSON.parse(localStorage.getItem(TODO_KEY) || '[]');
+    let activeIndex = null;
+    let currentFilter = 'all';
+
+    // DOM refs
+    const listEl = document.getElementById('todoList');
+    const inputEl = document.getElementById('taskInput');
+    const addBtn = document.getElementById('addBtn');
+    const totalStat = document.getElementById('totalStat');
+    const doneStat = document.getElementById('doneStat');
+    const upcomingStat = document.getElementById('upcomingStat');
+
+    const dlg = document.getElementById('taskDialog');
+    const dlgTitleInput = document.getElementById('dlgTitleInput');
+    const dlgDate = document.getElementById('dlgDate');
+    const dlgNotes = document.getElementById('dlgNotes');
+    const dlgCompleted = document.getElementById('dlgCompleted');
+
+    // helpers
+    function saveState(){
+      localStorage.setItem(TODO_KEY, JSON.stringify(todos));
+      render();
+    }
+
+    function formatDate(d){
+      if(!d) return '';
+      const dt = new Date(d + 'T00:00:00');
+      return dt.toLocaleDateString(undefined, { month:'short', day:'numeric' });
+    }
+
+    function isToday(dateStr){
+      if(!dateStr) return false;
+      const d = new Date(dateStr + 'T00:00:00');
+      const t = new Date();
+      return d.getFullYear()===t.getFullYear() && d.getMonth()===t.getMonth() && d.getDate()===t.getDate();
+    }
+
+    // render
+    function render(){
+      listEl.innerHTML = '';
+      const filtered = todos.filter((t) => {
+        if(currentFilter === 'all') return true;
+        if(currentFilter === 'today') return isToday(t.date);
+        if(currentFilter === 'upcoming') return !!t.date && !isToday(t.date);
+        return true;
+      });
+
+      if(filtered.length === 0){
+        listEl.innerHTML = `<div class="empty"><div class="emoji">🌸</div><div style="font-weight:700">No tasks yet</div><div class="small">Add your first task and click it to set date & notes.</div></div>`;
+      } else {
+        filtered.forEach((t) => {
+          const realIndex = todos.indexOf(t);
+          const item = document.createElement('div');
+          item.className = 'todo';
+          item.innerHTML = `
+            <div class="check ${t.done ? 'checked' : ''}" title="toggle complete" onclick="toggleDone(${realIndex})">
+              ${t.done ? '✓' : '+'}
+            </div>
+            <div class="meta" onclick="openDialog(${realIndex})" style="cursor:pointer">
+              <div class="title">${escapeHtml(t.title || 'Untitled')}</div>
+              <div class="small">
+                <span class="tags">
+                  ${t.date ? `<span class="pill">Due: ${formatDate(t.date)}</span>` : ''}
+                  ${t.notes ? `<span class="pill">Has notes</span>` : ''}
+                </span>
+              </div>
+            </div>
+            <div class="actions">
+              <button class="iconBtn" onclick="openDialog(${realIndex});event.stopPropagation()">Edit</button>
+              <button class="iconBtn" onclick="deleteTodo(${realIndex});event.stopPropagation()">Delete</button>
+            </div>
+          `;
+          listEl.appendChild(item);
+        });
+      }
+
+      // stats
+      totalStat.innerHTML = `${todos.length}<br><span style="font-size:12px;color:#7a3b5f;font-weight:600">Total</span>`;
+      doneStat.innerHTML = `${todos.filter(t=>t.done).length}<br><span style="font-size:12px;color:#7a3b5f;font-weight:600">Done</span>`;
+      upcomingStat.innerHTML = `${todos.filter(t=>t.date).length}<br><span style="font-size:12px;color:#7a3b5f;font-weight:600">With Date</span>`;
+    }
+
+    // UI actions
+    function addTodo(){
+      const val = inputEl.value.trim();
+      if(!val) return;
+      todos.unshift({ title: val, date: '', notes:'', done:false, created: new Date().toISOString() });
+      inputEl.value = '';
+      saveState();
+    }
+
+    function toggleDone(i){
+      todos[i].done = !todos[i].done;
+      saveState();
+    }
+
+    function deleteTodo(i){
+      if(!confirm('Delete this task?')) return;
+      todos.splice(i,1);
+      saveState();
+    }
+
+    function openDialog(i){
+      activeIndex = i;
+      const t = todos[i];
+      dlgTitleInput.value = t.title || '';
+      dlgDate.value = t.date || '';
+      dlgNotes.value = t.notes || '';
+      dlgCompleted.checked = !!t.done;
+      dlg.showModal();
+    }
+
+    function closeDialog(){
+      dlg.close();
+      activeIndex = null;
+    }
+
+    function saveDialog(){
+      if(activeIndex===null) return;
+      const t = todos[activeIndex];
+      t.title = dlgTitleInput.value.trim() || 'Untitled';
+      t.date = dlgDate.value || '';
+      t.notes = dlgNotes.value.trim();
+      t.done = dlgCompleted.checked;
+      saveState();
+      closeDialog();
+    }
+
+    function deleteFromDialog(){
+      if(activeIndex===null) return;
+      if(!confirm('Delete this task?')) return;
+      todos.splice(activeIndex,1);
+      saveState();
+      closeDialog();
+    }
+
+    function filterAll(){ currentFilter='all'; render(); }
+    function filterToday(){ currentFilter='today'; render(); }
+    function filterUpcoming(){ currentFilter='upcoming'; render(); }
+    function clearCompleted(){
+      if(!confirm('Remove all completed tasks?')) return;
+      todos = todos.filter(t => !t.done);
+      saveState();
+    }
+
+    function escapeHtml(s){
+      return s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+    }
+
+    // events
+    addBtn.addEventListener('click', addTodo);
+    inputEl.addEventListener('keydown', (e) => { if(e.key === 'Enter') addTodo(); });
+
+    // initial render
+    render();
+
+    dlg.addEventListener('cancel', (e) => { e.preventDefault(); closeDialog(); });
+  </script>
+</body>
+</html>
