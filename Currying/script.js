@@ -33,3 +33,4 @@ console.log(curriedMultiply(2)(3, 4)); // Outputs: 24
 // Currying can be particularly useful in scenarios where functions need to be reused with some arguments fixed, enhancing code modularity and readability.
 
 
+// End of Currying/script.js
