@@ -17,3 +17,4 @@ button.addEventListener('click',async()=>{
     cityTime.innerText=`Local time : ${res.location.localtime}`;
     cityTemp.innerText=`${res.current.temp_c} °C`;
 })
+// End of weather-app/script.js
