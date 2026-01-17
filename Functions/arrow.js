@@ -74,3 +74,5 @@ const person1={
     }
 }
 person1.myfunction()
+
+//`End of Functions/arrow.js

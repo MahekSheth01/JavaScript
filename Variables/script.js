@@ -68,3 +68,4 @@ console.log(typeof data);
 console.log(typeof info);
 console.log(typeof sym);
 console.log(typeof bigIntNum);
+
