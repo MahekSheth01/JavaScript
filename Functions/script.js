@@ -42,3 +42,16 @@ console.log(multiply(5,10))
     console.log("This is an IIFE function")
 }
 )();
+
+//Function Expression
+const divide=function(a,b){
+    return a/b
+}
+console.log(divide(10,2))
+
+//Default Parameters    
+function greet(name='Guest'){
+    console.log('Hello '+name)
+}
+greet('Mahek')
+greet()//Hello Guest
