@@ -31,3 +31,21 @@ let name="Mahek";
 setTimeout(()=>{
     console.log("Hello, "+name+"! This message is from setTimeout.");
 },5000);
+
+//Promises
+console.log("Promise Demonstration Start");
+const fetchData=new Promise((resolve,reject)=>{
+    let dataReceived=true;
+    if(dataReceived){
+        resolve("Data fetched successfully!");
+    }else{
+        reject("Error in fetching data.");
+    }
+});
+fetchData.then((message)=>{
+    console.log(message);
+}).catch((error)=>{
+    console.log(error);
+}
+);
+console.log("Promise Demonstration End");
