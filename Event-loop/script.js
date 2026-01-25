@@ -49,3 +49,5 @@ fetchData.then((message)=>{
 }
 );
 console.log("Promise Demonstration End");
+//Async/Await
+console.log("Async/Await Demonstration Start");

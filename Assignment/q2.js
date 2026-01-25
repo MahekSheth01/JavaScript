@@ -13,3 +13,20 @@ while(temp>0){
 if(sum===num){
     console.log(num+" is a Palindrome number");
 }
+
+//Palindrome string
+
+const n="madam1"
+
+let rev=""
+
+for(let i=n.length-1;i>=0;i--){
+    rev+=n[i]
+}
+if(rev===n){
+    console.log(n+" is a Palindrome string");
+}
+else{
+    console.log(n+" is not a Palindrome string");
+}
+
