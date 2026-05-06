@@ -3,7 +3,7 @@
 //It is created when a function is defined inside another function and the inner function references variables from the outer function.
 //Lexical scoping is the mechanism by which closures capture variables from their surrounding scope.
 function init(){
-    const name="Mahek";
+    const name="Mahek Sheth";
     function displayName(){
         console.log("Hello, "+name);
     }
