@@ -12,7 +12,7 @@ console.log("Start of Asynchronous Code");
 setTimeout(()=>{
     console.log("Asynchronous code executed after 2 seconds");
 },2000);
-console.log("End of Asynchronous Code");
+console.log("End of Asynchronous code");
 
 //Event Loop demonstration
 console.log("Event Loop Demonstration Start");
